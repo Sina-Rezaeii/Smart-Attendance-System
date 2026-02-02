@@ -1,0 +1,212 @@
+:root{
+  --bg: #0b1220;
+  --card: rgba(255,255,255,0.06);
+  --text: #eaf0ff;
+  --muted: rgba(234,240,255,0.70);
+  --border: rgba(234,240,255,0.14);
+  --shadow: 0 20px 60px rgba(0,0,0,0.35);
+  --accent: #17c3a2;
+  --accent2:#0ea5e9;
+  --warn:#f59e0b;
+  --bad:#ef4444;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  background:
+    radial-gradient(900px 400px at 15% 10%, rgba(23,195,162,0.22), transparent 60%),
+    radial-gradient(900px 500px at 85% 15%, rgba(14,165,233,0.18), transparent 55%),
+    linear-gradient(180deg, #071023 0%, #090f1f 35%, #070b16 100%);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  min-height: 100vh;
+  padding: 28px 16px 40px;
+}
+
+/* Header */
+.Sin2{
+  max-width: 1100px;
+  margin: 0 auto 18px;
+  padding: 18px 18px 16px;
+  border-radius: 18px;
+  background: linear-gradient(90deg, rgba(23,195,162,0.18), rgba(14,165,233,0.16));
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.Sin2 .topbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.Sin2 h1{
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.meta{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  flex-wrap: wrap;
+}
+
+.pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--warn);
+  box-shadow: 0 0 0 4px rgba(245,158,11,0.18);
+}
+
+.dot.ok{
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(23,195,162,0.18);
+}
+
+.dot.bad{
+  background: var(--bad);
+  box-shadow: 0 0 0 4px rgba(239,68,68,0.20);
+}
+
+/* Main container */
+.wrap{
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Table card */
+.table-card{
+  border-radius: 18px;
+  background: linear-gradient(180deg, var(--card), rgba(255,255,255,0.04));
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+/* Table */
+table.Sin1{
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
+.Sin1 thead th{
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: rgba(9, 18, 35, 0.92);
+  color: var(--text);
+  text-align: center;
+  font-weight: 700;
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+}
+
+.Sin1 tbody td{
+  padding: 14px 12px;
+  text-align: center;
+  border-bottom: 1px solid rgba(234,240,255,0.08);
+  color: rgba(234,240,255,0.92);
+}
+
+.Sin1 tbody tr{
+  transition: background 0.15s ease;
+}
+
+.Sin1 tbody tr:nth-child(even){
+  background: rgba(255,255,255,0.03);
+}
+
+.Sin1 tbody tr:hover{
+  background: rgba(23,195,162,0.10);
+}
+
+/* Loading / Empty State */
+.state-row td{
+  padding: 22px 12px !important;
+  color: var(--muted);
+  text-align: center;
+}
+
+.spinner{
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.25);
+  border-top-color: var(--accent);
+  display: inline-block;
+  vertical-align: -4px;
+  animation: spin 0.8s linear infinite;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 760px){
+  body{ padding: 18px 12px 28px; }
+
+  .Sin2{
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .Sin2 h1{
+    font-size: 1.05rem;
+  }
+
+  .Sin1 thead th{
+    font-size: 0.92rem;
+    padding: 12px 10px;
+  }
+
+  .Sin1 tbody td{
+    font-size: 0.92rem;
+    padding: 12px 10px;
+  }
+}
+
+@media (max-width: 520px){
+  .meta{
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .pill{
+    width: 100%;
+    justify-content: center;
+  }
+
+  .Sin1 tbody td:nth-child(2){
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-size: 0.88rem;
+  }
+}
