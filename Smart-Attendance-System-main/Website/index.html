@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Employee Time Tracking</title>
+
+  <!-- Font (optional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="Sin2">
+    <div class="topbar">
+      <h1>Employee Check-in / Check-out</h1>
+
+      <div class="meta">
+        <span class="pill" id="status-pill">
+          <span class="dot" id="status-dot"></span>
+          <span id="status-text">Fetching data…</span>
+        </span>
+
+        <span class="pill" id="last-update">Last update: —</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="table-card">
+      <table class="Sin1">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>UID</th>
+            <th>Date</th>
+            <th>Time_In</th>
+            <th>Time_Out</th>
+          </tr>
+        </thead>
+        <tbody id="timecard-body">
+          <tr class="state-row">
+            <td colspan="5">
+              <span class="spinner"></span>
+              Fetching data…
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- External JS -->
+  <script src="script.js"></script>
+</body>
+</html>
